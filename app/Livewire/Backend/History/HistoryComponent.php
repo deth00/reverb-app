@@ -22,6 +22,7 @@ class HistoryComponent extends Component
     {
         $log = Log::select('log_score.*', 'sub.name')->where('subject_id', $this->subject_id)
             ->join('subjects as sub', 'log_score.subject_id', '=', 'sub.id')
+            ->where('del',1)
             ->get();
         return view('livewire.backend.history.history-component', compact('log'));
     }

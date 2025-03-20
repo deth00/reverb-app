@@ -111,6 +111,7 @@ class ViewScoreComponent extends Component
         $subject->expire = $this->expire;
         $subject->status = 1;
         $subject->save();
+        $log = Log::where('subject_id', $this->subject_id)->update(array('del' => '0'));
         session()->flash('success', 'ສິ້ນສຸດການລົງຄະແນນ');
         return redirect(route('dashboards'));
     }
