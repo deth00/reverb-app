@@ -78,8 +78,8 @@
                                     @if ($vote != [])
                                         <div class="form-group">
                                             @if ($del_count != null)
-                                                <button class="btn btn-warning phetsarath-font"
-                                                    wire:click="rm">ລົບຄະແນນ</button>
+                                                {{-- <button class="btn btn-warning phetsarath-font"
+                                                    wire:click="rm">ລົບຄະແນນ</button> --}}
                                             @else
                                                 @if ($btn == 0)
                                                     <button class="btn btn-success phetsarath-font"
@@ -93,8 +93,8 @@
                                         <div class="form-group">
                                             <button class="btn btn-primary phetsarath-font" wire:click="showVote"
                                                 id="changeRed">ເລືອກ</button>
-                                            <button class="btn btn-danger phetsarath-font"
-                                                wire:click="showDel">ລົບຄະແນນ</button>
+                                            {{-- <button class="btn btn-danger phetsarath-font"
+                                                wire:click="showDel">ລົບຄະແນນ</button> --}}
                                             {{-- <button class="btn btn-success phetsarath-font"
                                                 wire:click="showbackward">ຍ້ອນກັບ</button> --}}
                                         </div>
