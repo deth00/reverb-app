@@ -13,26 +13,48 @@
             </div>
         </div>
     </div> -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-title-box p-2">
+                <div class="row">
+                    <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <img src="{{ asset('backend/assets/images/logop.png') }}" alt="user-image"
+                            class="rounded mx-auto d-block" style="width: 150px">
+                    </div>
+                    <div class="col-sm-8 col-md-8col-lg-8 col-xl-8">
+                        <label for=""></label>
+                        <label for=""></label>
+                        <h2 class="text-center" style="color: white">
+                            {{ $subject->name }}
+                        </h2>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="page-title-box p-2">
                 <div class="row">
                     <div class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
-                        <h4>
-                            ຈຳນວນບັດທັງໝົດ : <span class="timenewroman-font text-primary">{{ $subject->total }}</span>
+                        <h4 style="color: white">
+                            ຈຳນວນບັດທັງໝົດ : <span class="timenewroman-font"
+                                style="color: white">{{ $subject->total }}</span>
                             ບັດ
                             |
-                            ຈຳນວນບັດທີ່ປ່ອນ : <span
-                                class="timenewroman-font text-success">{{ number_format($sum_count / $subject->selected) }}</span>
+                            ຈຳນວນບັດທີ່ປ່ອນ : <span class="timenewroman-font"
+                                style="color: white">{{ number_format($sum_count / $subject->selected) }}</span>
                             ບັດ
                             |
-                            ຈຳນວນບັດທີ່ຍັງບໍ່ປ່ອນ : <span
-                                class="timenewroman-font text-danger">{{ number_format($subject->total - $sum_count / $subject->selected - $subject->expire) }}</span>
+                            ຈຳນວນບັດທີ່ຍັງບໍ່ປ່ອນ : <span class="timenewroman-font"
+                                style="color: white">{{ number_format($subject->total - $sum_count / $subject->selected - $subject->expire) }}</span>
                             ບັດ
                             |
-                            ຈຳນວນບັດເສຍ : <span
-                                class="timenewroman-font text-danger">{{ number_format($subject->expire) }}</span>
+                            ຈຳນວນບັດເສຍ : <span class="timenewroman-font"
+                                style="color: white">{{ number_format($subject->expire) }}</span>
                             ບັດ
                         </h4>
                     </div>
@@ -55,7 +77,7 @@
 
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <div class="card-box">
+            <div class="card-box" style="background-color: red">
 
                 <div class="row">
 
@@ -70,11 +92,12 @@
                                             <input type="number" class="form-control phetsarath-font zipcode-number"
                                                 placeholder="ໝາຍເລກ" wire:model="score.{{ $i }}"
                                                 min="0" max="{{ $datas_count->registed }}" maxlength="1"
-                                                name="" id="zipCode1" {{ $vote_count }}>
+                                                name="" id="{{ $i === 0 ? 'currentInput' : '' }}"
+                                                {{ $vote_count }}>
                                         </div>
                                     </div>
                                 @endfor
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     @if ($vote != [])
                                         <div class="form-group">
                                             @if ($del_count != null)
@@ -113,11 +136,10 @@
                         @endif
 
                         <div class="row">
-
                             @foreach ($vote as $item)
                                 <div class="col-md-2">
                                     <label for="name-{{ $item->id }}"
-                                        class="text-danger">{{ $item->name }}</label>
+                                        class="text-white">{{ $item->name }}</label>
                                 </div>
                             @endforeach
 
@@ -133,15 +155,15 @@
 
                         <div class="row">
                             <div class="col-lg-12">
-
-                                <div class="table-responsive">
+                                <!-- table-hover  -->
+                                <div class="table-responsive" style="background-color: red">
                                     <table border="2"
-                                        class="table table-hover agents-mails-checkbox m-0  table-centered table-actions-bar"
-                                        style="color: #000;">
+                                        class="table table-sm  agents-mails-checkbox m-0  table-centered table-actions-bar"
+                                        style="color: white; border-color:white">
                                         <thead class="text-center">
                                             <tr>
                                                 {{-- <th rowspan="2">ລຳດັບ</th> --}}
-                                                <th rowspan="2">ຮູບ</th>
+                                                {{-- <th rowspan="2">ຮູບ</th> --}}
                                                 <th>ໝາຍເລກ</th>
                                                 <th rowspan="2">ຊື່ ແລະ ນາມສະກຸນ</th>
                                                 <th rowspan="2">ຄະແນນໄດ້</th>
@@ -158,31 +180,36 @@
                                                         <h10 class="timenewroman-font">{{ $i++ }}
                                                         </h10>
                                                     </td> --}}
-                                                    <td rowspan="1">
+                                                    {{-- <td rowspan="1" >
                                                         <img src="{{ asset($item->img) }}" alt="contact-img"
                                                             title="contact-img" width="25px" height="30px">
-                                                    </td>
+                                                    </td> --}}
                                                     <td>
-                                                        <h5 class="timenewroman-font" style="font-size: 28px">
+                                                        <h5 class="timenewroman-font"
+                                                            style="font-size: 29px; color: white;">
                                                             {{ $item->no }}
                                                         </h5>
                                                     </td>
                                                     <td class="text-left">
-                                                        <h5 class="phetsarath-font" style="font-size: 28px">
+                                                        <h5 class="phetsarath-font"
+                                                            style="font-size: 29px; color: white;">
                                                             {{ $item->name }}</h5>
                                                     </td>
                                                     <td rowspan="1">
-                                                        <h5 class="timenewroman-font" style="font-size: 28px">
+                                                        <h5 class="timenewroman-font"
+                                                            style="font-size: 29px; color: white;">
                                                             {{ $item->vote - $item->score }}
                                                         </h5>
                                                     </td>
                                                     <td rowspan="1">
-                                                        <h5 class="timenewroman-font" style="font-size: 28px">
+                                                        <h5 class="timenewroman-font"
+                                                            style="font-size: 29px; color: white;">
                                                             {{ $item->score }}
                                                         </h5>
                                                     </td>
                                                     <td rowspan="1">
-                                                        <h5 class="timenewroman-font" style="font-size: 28px">
+                                                        <h5 class="timenewroman-font"
+                                                            style="font-size: 29px; color: white;">
                                                             {{ number_format($sum_count / $subject->selected) }}</h5>
                                                     </td>
                                                 </tr>
@@ -210,7 +237,8 @@
         </div>
     </div>
     <!-- End row -->
-    <div wire:ignore.self id="modal-add" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div wire:ignore.self id="modal-add" class="modal fade" role="dialog" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-primary">
@@ -228,12 +256,15 @@
                                     wire:model="log_but">
                                     <option>ບັດ</option>
                                     @foreach ($log as $item)
-                                    <option value="{{ $item['no']}},{{ $item['but']}}">{{ $item['but'] }}</option>
-                                @endforeach
+                                        <option value="{{ $item['no'] }},{{ $item['but'] }}">{{ $item['but'] }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
 
-                            @error('docgroup_id') <span style="color: red" class="error">{{ $message }}</span> @enderror
+                            @error('docgroup_id')
+                                <span style="color: red" class="error">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group" wire:ignore>
@@ -241,7 +272,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">ປິດ</button>
+                    <button type="button" class="btn btn-secondary waves-effect"
+                        data-bs-dismiss="modal">ປິດ</button>
                     <button type="button" class="btn btn-primary waves-effect waves-light"
                         wire:click="backward">ຕົກລົງ</button>
                 </div>
@@ -279,8 +311,8 @@
             fruits.forEach(myFunction);
 
             function myFunction(item, index) {
-                // document.getElementById(item).style.color = "#fff";
-                document.getElementById(item).style.backgroundColor = "#ff6f6f";
+                document.getElementById(item).style.backgroundColor = "#6E0000FF";
+                // document.getElementById(item).style.color = "#1F0505FF"; // Set font color to black
             }
         })
 
@@ -290,14 +322,37 @@
             fruits.forEach(myFunction);
 
             function myFunction(item, index) {
-                document.getElementById(item).style.backgroundColor = "#fff";
+                const el = document.getElementById(item);
+                if (el) {
+                    el.style.backgroundColor = "#FF0015FF";
+                }
             }
+
+            // Focus the input after resetting
+    
+            setTimeout(() => {
+                                  console.log(123);   
+                const el = document.getElementById('currentInput');
+                if (el && !el.disabled) {
+                    el.focus();
+                    el.select();
+                }
+            }, 300); // Adjust delay if needed
+
         })
 
         document.addEventListener('livewire:load', () => {
             window.livewire.on('newfocus', inputname => {
-                document.getElementById('currentInput').focus();
-            })
+   
+                setTimeout(() => {
+                    const el = document.getElementById('currentInput');
+                    if (el && !el.disabled) {
+                        el.focus();
+                        el.select();
+                    }
+
+                }, 300); // increase delay to 300ms
+            });
         });
         window.addEventListener('show-edit', event => {
             $('#modal-add').modal('show');
