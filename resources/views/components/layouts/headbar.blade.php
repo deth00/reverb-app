@@ -1,7 +1,7 @@
 <!-- Navigation Bar-->
-<header id="topnav" class="boonhome-font">
+<header id="topnav" class="boonhome-font"  style="background-color: red">
     <!-- Topbar Start -->
-    <div class="navbar-custom">
+    <div class="navbar-custom" style="background-color: red">
         <div class="container-fluid">
             <ul class="list-unstyled topnav-menu float-right mb-0">
 

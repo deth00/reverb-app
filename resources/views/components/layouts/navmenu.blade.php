@@ -5,17 +5,19 @@
             <ul class="navigation-menu">
 
                 <li>
-                    <a href="{{route('dashboards')}}" class="phetsarath-font"> <i class="mdi mdi-view-dashboard"></i>ໜ້າຫຼັກ</a>
+                    <a href="{{ route('dashboards') }}" class="phetsarath-font" style="color: white"> <i
+                            class="mdi mdi-view-dashboard"></i>ໜ້າຫຼັກ</a>
                 </li>
 
                 <li>
-                    <a href="{{route('subjects')}}" class="phetsarath-font"> <i class="mdi mdi-pencil-box-multiple"></i>ຫົວຂໍ້ການນັບຄະແນນ</a>
+                    <a href="{{ route('subjects') }}" class="phetsarath-font" style="color: white"> <i
+                            class="mdi mdi-pencil-box-multiple"></i>ຫົວຂໍ້ການນັບຄະແນນ</a>
                 </li>
 
                 {{-- <li>
                     <a href="{{route('history')}}" class="phetsarath-font"> <i class="mdi mdi-pencil-box-multiple"></i>ປະຫວັດການປ້ອນ</a>
                 </li> --}}
-         
+
                 <!-- <li class="has-submenu">
                     <a href="#"> <i class="mdi mdi-file-document-box-multiple-outline"></i> ລາຍງານການເລືອກຕັ້ງຜ່ານມາ
                     </a>
@@ -35,3 +37,4 @@
     <!-- end container -->
 </div>
 <!-- end navbar-custom -->
+

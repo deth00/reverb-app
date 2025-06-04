@@ -1,5 +1,5 @@
                 <!-- Footer Start -->
-                <footer class="footer">
+                <footer class="footer" style="background-color: red">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12 text-left">

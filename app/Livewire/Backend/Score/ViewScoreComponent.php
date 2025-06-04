@@ -5,11 +5,8 @@ namespace App\Livewire\Backend\Score;
 use Livewire\Component;
 use App\Models\Subject;
 use App\Models\Registed;
-use Livewire\Attributes\On;
 use App\Events\SendRealtimeMessage;
 use App\Models\Log;
-use App\Models\LogS;
-use Illuminate\Database\Eloquent\Builder;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +21,7 @@ class ViewScoreComponent extends Component
     public function mount($id)
     {
         $this->subject = Subject::find($id);
+        // dd($this->subject->name);
         $this->subject_id = $id;
         $this->message = $id;
         $this->user_id = auth()->user()->id;
@@ -153,6 +151,7 @@ class ViewScoreComponent extends Component
 
     public function showVote()
     {
+       
         $this->vote = Registed::where('subject_id', $this->subject_id)->whereIn('no', $this->score)->get();
         $c = count($this->score);
         $d = count($this->vote);
@@ -226,6 +225,7 @@ class ViewScoreComponent extends Component
                         $this->clear();
                         $this->vote_count = null;
                         $this->dispatch('show-reset');
+                        // $this->dispatch('newfocus');
                     } else {
                         $this->dispatch('alert', type: 'warning', message: 'ຂໍ້ມູນຜູ້ຖືກເລືອກບໍ່ຄົບ!');
                     }
